@@ -73,9 +73,7 @@
 - (void)viewDidLoad {
 	self.title = @"Events List";
 	UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [button addTarget:self 
-               action:@selector(aMethod:)
-     forControlEvents:UIControlEventTouchDown];
+    [button addTarget:self action:@selector(showMap:) forControlEvents:UIControlEventTouchDown];
     [button setTitle:@"Show View" forState:UIControlStateNormal];
     button.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
     [self.view addSubview:button];
@@ -222,7 +220,11 @@
     
     // set the addController's event store to the current event store.
 	addController.eventStore = self.eventStore;
-  
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button addTarget:addController action:@selector(showMap:) forControlEvents:UIControlEventTouchDown];
+    [button setTitle:@"Show View" forState:UIControlStateNormal];
+    button.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
+    [addController.view addSubview:button];
 	// present EventsAddViewController as a modal view controller
 	[self presentModalViewController:addController animated:YES];
 	
